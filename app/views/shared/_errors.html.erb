@@ -1,0 +1,14 @@
+<% if obj.errors.any? %>
+  <div class="ui error message">
+    <i class="close icon"></i>
+    <div class="header">
+      There were some errors with your submission :
+      <%= pluralize(obj.errors.count, "error") %>
+    </div>
+    <ul class="list">
+      <% obj.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
