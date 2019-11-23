@@ -8,8 +8,12 @@
     <a class="item">Company</a>
     <a class="item">Careers</a>
     <div class="right item">
-      <a class="ui inverted button">Log in</a>
-      <%= link_to 'Sign Up', signup_path, class: 'ui inverted button' %>
+      <% if logged_in? %>
+        <%= link_to 'Log out', logout_path, method: :delete, class: 'ui inverted button' %>
+      <% else %>
+        <%= link_to 'Log in', login_path, class: 'ui inverted button' %>
+        <%= link_to 'Sign Up', signup_path, class: 'ui inverted button' %>
+      <% end %>
     </div>
   </div>
 </div>

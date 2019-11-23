@@ -7,10 +7,12 @@
     <a class="item">Careers</a>
     <div class="right menu">
       <div class="item">
-        <a class="ui button">Log in</a>
-      </div>
-      <div class="item">
-        <%= link_to 'Sign Up', signup_path, class: 'ui primary button' %>
+        <% if logged_in? %>
+          <%= link_to 'Log out', logout_path, method: :delete, class: 'ui primary button' %>
+        <% else %>
+          <%= link_to 'Log in', login_path, class: 'ui primary button' %>
+          <%= link_to 'Sign Up', signup_path, class: 'ui primary button' %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -23,5 +25,10 @@
   <a class="item">Company</a>
   <a class="item">Careers</a>
   <a class="item">Login</a>
-  <%= link_to 'Sign Up', signup_path, class: 'item' %>
+  <% if logged_in? %>
+    <%= link_to 'Log out', logout_path, method: :delete, class: 'item' %>
+  <% else %>
+    <%= link_to 'Log in', login_path, class: 'item' %>
+    <%= link_to 'Sign Up', signup_path, class: 'item' %>
+  <% end %>
 </div>
