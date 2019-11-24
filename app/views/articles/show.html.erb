@@ -1,0 +1,13 @@
+<div class="ui card not-center">
+  <div class="content">
+    <div class="header"><%= @article.title %></div>
+    <div class="meta"><%= @article.created_at.strftime('%Y/%m/%d') %></div>
+    <div class="description">
+      <%= simple_format(h(@article.description), {}, wrapper_tag: "p")%>
+    </div>
+  </div>
+  <div class="extra content">
+    <i class="user circle icon"></i>
+    <%= @article.user.username %>
+  </div>
+</div>

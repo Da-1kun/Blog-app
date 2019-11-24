@@ -1,0 +1,20 @@
+<div class="eight wide column">
+  <div class="ui attached message">
+  <div class="header">
+    Let's write a new Article!
+  </div>
+  </div>
+  <%= form_for @article, html: {class: "ui form attached fluid segment"} do |f| %>
+    <div class="field">
+      <%= f.label :title %>
+      <%= f.text_field :title, placeholder: "Title of article" %>
+    </div>
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_area :description, placeholder: "Body of article" %>
+    </div>
+    <%= f.submit class: "ui blue submit button" %>
+  <% end %>
+</div> 
+ 
+  
