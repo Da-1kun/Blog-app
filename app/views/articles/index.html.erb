@@ -1,0 +1,22 @@
+<div class="ui stackable centered grid">
+  <div class="ten wide left aligned column">
+    <div class="ui very padded segment">
+      <div class="ui relaxed divided list">
+        <% @articles.each do |article| %>
+        <div class="item">
+          <i class="large github middle aligned icon"></i>
+          <div class="content">
+            <%= link_to article.title, article_path(article), class: "header" %>
+            <div class="description">By <%= article.user.username %>&nbsp;
+              <%= time_ago_in_words(article.updated_at) %> ago
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="two wide column">
+    <%= render 'shared/categories' %>
+  </div>
+</div>

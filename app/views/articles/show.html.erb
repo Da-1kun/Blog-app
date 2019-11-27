@@ -1,7 +1,24 @@
+<div class="ui stackable centered grid">
+  <div class="twelve wide left aligned column">
+    <div class="ui very padded segment">
+      <i class="user circle icon"></i>
+      <%= @article.user.username %> Updated at <%= @article.updated_at.strftime('%Y/%m/%d') %>
+      <p></p>
+      <h4 class="ui hedder"><%= @article.title %></h4>
+      <p></p>
+      <%= simple_format(h(@article.description), {}, wrapper_tag: "p")%>
+    </div>
+  </div>
+  <div class="four wide column">
+    <%= render 'shared/categories' %>
+  </div>
+</div>
+
+<!-- 
 <div class="ui card not-center">
   <div class="content">
     <div class="header"><%= @article.title %></div>
-    <div class="meta"><%= @article.created_at.strftime('%Y/%m/%d') %></div>
+    <div class="meta"><%= @article.updated_at.strftime('%Y/%m/%d') %></div>
     <div class="description">
       <%= simple_format(h(@article.description), {}, wrapper_tag: "p")%>
     </div>
@@ -10,4 +27,4 @@
     <i class="user circle icon"></i>
     <%= @article.user.username %>
   </div>
-</div>
+</div>-->

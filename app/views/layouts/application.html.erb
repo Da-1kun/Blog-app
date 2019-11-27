@@ -16,12 +16,8 @@
       <% if controller.action_name != "top" %>
         <%= render 'layouts/staticNavigation' %>
       <% end %>
-      <div class="ui centered grid mt-10">
-        <div class="center aligned row">
-          <%= render 'layouts/messages' %>
-          <%= yield %>
-        </div>
-      </div>    
+      <%= render 'layouts/messages' %>
+      <%= yield %>
     </div>
   </body>
 </html>

@@ -1,0 +1,8 @@
+<div class="ui vertical menu">
+  <% Category.all.each do |category| %>
+  <a class="item">
+    <%= category.name %>
+    <div class="ui left pointing label"><%= category.articles.count %></div>
+  </a>
+  <% end %>
+</div>

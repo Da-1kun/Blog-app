@@ -1,36 +1,40 @@
-<%= render 'shared/errors', obj: @user %>
+<div class="ui centered grid mt-10">
+  <div class="center aligned row">
+    <%= render 'shared/errors', obj: @user %>
 
-<div class="ui middle aligned center aligned grid">
-  <div class="short column">
-    <h2 class="ui teal image header">
-      <%# <img src="assets/images/logo.png" class="image"> %>
-      <i class="child icon"></i>
-      <div class="content">
-        Sign up
+    <div class="ui middle aligned center aligned grid">
+      <div class="short column">
+        <h2 class="ui teal image header">
+          <%# <img src="assets/images/logo.png" class="image"> %>
+          <i class="child icon"></i>
+          <div class="content">
+            Sign up
+          </div>
+        </h2>
+        <%= form_for @user, html: {class: "ui large form"} do |f| %>
+          <div class="ui stacked segment">
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="user icon"></i>
+                <%= f.text_field :username, placeholder: "Username" %>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="envelope icon"></i>
+                <%= f.email_field :email, placeholder: "E-mail address" %>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="lock icon"></i>
+                <%= f.password_field :password, placeholder: "Password" %>
+              </div>
+            </div>
+            <%= f.submit(@user.new_record? ? "Sign up" : "Update account", class: "ui fluid large teal submit button")%>
+          </div>
+        <% end %>
       </div>
-    </h2>
-    <%= form_for @user, html: {class: "ui large form"} do |f| %>
-      <div class="ui stacked segment">
-        <div class="field">
-          <div class="ui left icon input">
-            <i class="user icon"></i>
-            <%= f.text_field :username, placeholder: "Username" %>
-          </div>
-        </div>
-        <div class="field">
-          <div class="ui left icon input">
-            <i class="envelope icon"></i>
-            <%= f.email_field :email, placeholder: "E-mail address" %>
-          </div>
-        </div>
-        <div class="field">
-          <div class="ui left icon input">
-            <i class="lock icon"></i>
-            <%= f.password_field :password, placeholder: "Password" %>
-          </div>
-        </div>
-        <%= f.submit(@user.new_record? ? "Sign up" : "Update account", class: "ui fluid large teal submit button")%>
-      </div>
-    <% end %>
+    </div>
   </div>
 </div>
