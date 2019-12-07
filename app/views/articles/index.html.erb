@@ -18,6 +18,7 @@
         <% end %>
       </div>
     </div>
+    <%= will_paginate @articles, renderer: WillPaginateSemanticUi::ActionView::Renderer %>
   </div>
   <div class="two wide column">
     <%= render 'shared/categories' %>

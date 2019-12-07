@@ -119,3 +119,15 @@ p {
   font-size: 1.3rem;
 }
 
+pre {
+  padding: 10px;
+  font-size: 18px;
+  line-height: 32px;
+  overflow: auto;
+  background-color: #f6f8fa;
+}
+
+.pagination.ui.menu.pagination {
+  float: right;
+}
+

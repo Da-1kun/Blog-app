@@ -36,6 +36,10 @@ gem 'bcrypt', '~> 3.1.7'
 # CustomGems
 gem 'semantic-ui-sass'
 gem 'jquery-rails'
+gem 'redcarpet', '~> 2.3.0'
+gem 'coderay'
+gem 'will_paginate','~> 3.0'
+gem 'will_paginate_semantic_ui'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
