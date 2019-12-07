@@ -95,10 +95,6 @@
   }
 }
 
-// .ui.middle.aligned {
-//   height: 80vh;
-// }
-
 .image {
   margin-top: -100px;
 }
@@ -113,5 +109,13 @@
 .ui.card.not-center {
   text-align: initial;
   width: 40%;
+}
+
+.ui.stackable.centered.grid {
+  padding-top: 5.75rem !important;
+}
+
+p {
+  font-size: 1.3rem;
 }
 

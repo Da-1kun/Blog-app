@@ -1,30 +1,23 @@
 <div class="ui stackable centered grid">
-  <div class="twelve wide left aligned column">
+  <div class="ten wide left aligned column">
     <div class="ui very padded segment">
-      <i class="user circle icon"></i>
-      <%= @article.user.username %> Updated at <%= @article.updated_at.strftime('%Y/%m/%d') %>
+      <h4 class="ui header">
+        <i class="user circle icon"></i>
+        <div class="content">
+          <%= @article.user.username %>
+          <div class="sub header">
+          Updated at &nbsp;<%= @article.updated_at.strftime('%Y/%m/%d') %>
+          </div>
+        </div>
+      </h4>
       <p></p>
-      <h4 class="ui hedder"><%= @article.title %></h4>
+      <div class="ui huge header"><%= @article.title %></div>
       <p></p>
+      <div class="ui clearing divider"></div>
       <%= simple_format(h(@article.description), {}, wrapper_tag: "p")%>
     </div>
   </div>
-  <div class="four wide column">
+  <div class="two wide column">
     <%= render 'shared/categories' %>
   </div>
 </div>
-
-<!-- 
-<div class="ui card not-center">
-  <div class="content">
-    <div class="header"><%= @article.title %></div>
-    <div class="meta"><%= @article.updated_at.strftime('%Y/%m/%d') %></div>
-    <div class="description">
-      <%= simple_format(h(@article.description), {}, wrapper_tag: "p")%>
-    </div>
-  </div>
-  <div class="extra content">
-    <i class="user circle icon"></i>
-    <%= @article.user.username %>
-  </div>
-</div>-->
