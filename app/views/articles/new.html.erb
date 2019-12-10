@@ -5,16 +5,101 @@
       Let's write a new Article!
     </div>
     </div>
-    <%= form_for @article, html: {class: "ui huge form attached fluid segment"} do |f| %>
+    <%= form_for @article, html: {class: "ui big form attached fluid segment"} do |f| %>
       <div class="field">
-        <%= f.label :title %>
-        <%= f.text_field :title, placeholder: "Title of article" %>
+        <%= f.text_field :title, placeholder: "TITLE" %>
       </div>
       <div class="field">
-        <%= f.label :description %>
-        <%= f.text_area(:description, rows: "20", placeholder: "Body of article") %>
+        <select name="categories" multiple="" class="ui fluid dropdown" id="multi-select">
+          <option value="">CATEGORIES</option>
+          <%= Category.all.each do |category| %>
+            <option value="<%= category.name %>"><%= category.name %></option>           
+          <% end %>
+        </select>
       </div>
-      <%= f.submit class: "ui blue large submit button" %>
+      <div class="ui grid">
+        <div class="ten wide column">
+          <div class="field">
+            <%= f.text_area(:description, rows: "23", placeholder: "BODY") %>
+          </div>
+        </div>
+        <div class="six wide column">
+          <div class="ui segment">
+            <h3 class="ui header">Markdown Syntax</h3>
+            <div class="ui two cards">
+              <div class="card">
+                <div class="content">
+                  <div class="header">Headings</div>
+                  <div class="description">
+                    # &nbsp;Heading level 1<br>
+                    ## &nbsp;Heading level 2<br>
+                    ### &nbsp;Heading level 3<br>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="content">
+                  <div class="header">Unordered Lists</div>
+                  <div class="description">
+                    - First item<br>
+                    - Second item<br>
+                    　- Indented item<br>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="content">
+                  <div class="header">Checkbox</div>
+                  <div class="description">
+                    - [ ] checkbox 1<br>
+                    - [ ] checkbox 2<br>
+                    - [x] checkbox 3<br>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="content">
+                  <div class="header">Ordered Lists</div>
+                  <div class="description">
+                    1. First item<br>
+                    2. Second item<br>
+                    　1. Indented item<br>
+                    　2. Indented item<br>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="content">
+                  <div class="header">Emphasis</div>
+                  <div class="description">
+                    &#8727;&#8727;Bold text&#8727;&#8727;
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="content">
+                  <div class="header">Links</div>
+                  <div class="description">
+                    [Link] (https://...)
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="content">
+                  <div class="header">Code</div>
+                  <div class="description">
+                    ```ruby:filename.rb<br>
+                    code<br>
+                    ```
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+      <%= button_tag type: "submit", class: "ui primary submit labeled icon button", id: "post_btn" do %>
+        <i class="icon edit"></i> Post
+      <% end %>
     <% end %>
   </div>
 </div>
