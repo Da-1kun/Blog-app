@@ -1,13 +1,14 @@
 <div class="ui stackable centered grid">
   <div class="ten wide left aligned column">
     <div class="ui very padded segment">
+      <div class="ui large center aligned header"><i class="list alternate outline icon"></i> Articles List</div>
       <div class="ui relaxed divided list">
         <% @articles.each do |article| %>
         <div class="item">
           <div class="ui large header">
             <i class="large github middle aligned icon"></i>
             <div class="content">
-              <%= link_to article.title, article_path(article) %>
+              <%= link_to article.title, article_path(article), class: 'under-line', style: 'color:black;' %>
               <div class="sub header">
                 By <%= article.user.username %>&nbsp;
                 [ <%= time_ago_in_words(article.updated_at) %> ago ]

@@ -10,10 +10,10 @@
         <%= f.text_field :title, placeholder: "TITLE" %>
       </div>
       <div class="field">
-        <select name="categories" multiple="" class="ui fluid dropdown" id="multi-select">
-          <option value="">CATEGORIES</option>
+        <select name="article[category_ids][]" multiple="" class="ui fluid dropdown" id="multi-select">
+          <option value="">Select Category</option>
           <%= Category.all.each do |category| %>
-            <option value="<%= category.name %>"><%= category.name %></option>           
+            <option value="<%= category.id %>"><%= category.name %></option>           
           <% end %>
         </select>
       </div>
@@ -94,7 +94,16 @@
                   </div>
                 </div>
               </div>
+              <div class="blue card">
+                <div class="content">
+                  <div class="header"><i class="blue question circle outline icon"></i>More Tips</div>
+                  <div class="description">
+                    <%= link_to 'Markdown Guide', 'https://www.markdownguide.org/basic-syntax/', target: :_blank %>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
       </div>
       <%= button_tag type: "submit", class: "ui primary submit labeled icon button", id: "post_btn" do %>

@@ -132,5 +132,13 @@ pre {
 }
 
 #post_btn {
-  margin: 0 0 1rem 1rem;
+  margin-top: 1rem;
+}
+
+.sub.header {
+  color: rgba(0,0,0,.4) !important;
+}
+
+a:hover.under-line {
+  text-decoration: underline !important;
 }
