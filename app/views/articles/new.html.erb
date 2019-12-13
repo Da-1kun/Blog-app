@@ -2,7 +2,7 @@
   <div class="fourteen wide column">
     <div class="ui attached message">
     <div class="ui large header">
-      Let's write a new Article!
+      <i class="small pencil alternate icon"></i>Let's write a new Article!
     </div>
     </div>
     <%= form_for @article, html: {class: "ui big form attached fluid segment"} do |f| %>
@@ -107,7 +107,7 @@
         </div>
       </div>
       <%= button_tag type: "submit", class: "ui primary submit labeled icon button", id: "post_btn" do %>
-        <i class="icon edit"></i> Post
+        <i class="upload icon"></i> Post
       <% end %>
     <% end %>
   </div>

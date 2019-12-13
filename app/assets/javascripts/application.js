@@ -39,6 +39,8 @@ $(document).on('turbolinks:load', () => {
     $(e.target).closest('.message').transition('fade');
   });
 
-  $('#multi-select').dropdown();
+  $('#multi-select').dropdown({
+    maxSelections: 3
+  });
 
 }) 

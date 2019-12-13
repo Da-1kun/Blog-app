@@ -12,7 +12,9 @@
       </h4>
       <p></p>
       <div class="ui huge header"><%= @article.title %></div>
-      <p></p>
+      <% if @article.categories.any? %>
+        <%= render @article.categories %>
+      <% end %>
       <div class="ui clearing divider"></div>
       <%= markdown(@article.description).html_safe %>
     </div>
