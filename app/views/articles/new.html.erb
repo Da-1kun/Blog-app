@@ -2,10 +2,12 @@
   <div class="fourteen wide column">
     <div class="ui attached message">
     <div class="ui large header">
-      <i class="small pencil alternate icon"></i>Let's write a new Article!
+      <i class="pencil alternate icon"></i>
+      <div class="content">Let's write a new Article!</div>
     </div>
     </div>
     <%= form_for @article, html: {class: "ui big form attached fluid segment"} do |f| %>
+      <%= render 'shared/errors', obj: @article %>
       <div class="field">
         <%= f.text_field :title, placeholder: "TITLE" %>
       </div>

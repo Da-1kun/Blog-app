@@ -43,4 +43,8 @@ $(document).on('turbolinks:load', () => {
     maxSelections: 3
   });
 
+  // display Modal
+  $('#delete_article_btn').on('click', () => {
+    $('.ui.basic.modal').modal('show');
+  })
 }) 

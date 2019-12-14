@@ -150,3 +150,14 @@ a:hover.under-line {
 .tag.label {
   margin-right: 0.5rem;
 }
+
+.ui.message.transition {
+  width: 35%;
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+}
+
+.ui.error.message {
+  display: block !important;
+}
