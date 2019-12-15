@@ -1,0 +1,17 @@
+<% obj.each do |article| %>
+<div class="item">
+  <div class="ui large header">
+    <i class="large github middle aligned icon"></i>
+    <div class="content">
+      <%= link_to article.title, article_path(article), class: 'under-line', style: 'color:black;' %>
+      <div class="sub header wide">
+        By <%= article.user.username %>&nbsp;&nbsp;
+        <i class="clock icon"></i><%= time_ago_in_words(article.updated_at) %> ago&nbsp;&nbsp;
+        <% if article.categories.any? %>
+          <%= render article.categories %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

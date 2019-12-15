@@ -11,7 +11,8 @@
 .masthead .logo.item img {
   margin-right: 1em;
 }
-.masthead .ui.menu .ui.button {
+.masthead .ui.menu .ui.button,
+.right.item .ui.inverted.button {
   margin-left: 0.5em;
 }
 .masthead h1.ui.header {
@@ -152,10 +153,9 @@ a:hover.under-line {
 }
 
 .ui.message.transition {
-  width: 35%;
   position: absolute;
-  bottom: 5%;
-  left: 5%;
+  bottom: 2%;
+  left: 1%;
 }
 
 .ui.error.message {

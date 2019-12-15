@@ -39,7 +39,9 @@ $(document).on('turbolinks:load', () => {
     $(e.target).closest('.message').transition('fade');
   });
 
-  $('#multi-select').dropdown({
+  $('#infoMsg').fadeOut(7500);
+
+  $('#article_category_ids').dropdown({
     maxSelections: 3
   });
 

@@ -1,1 +1,23 @@
-This is show page!
+<div class="ui stackable centered grid">
+  <div class="ten wide left aligned column">
+    <div class="ui very padded segment">
+      <div class="ui center aligned icon large header">
+        <div class="ui header">Welcome to <%= @user.username %>'s Page!</div>
+        <i class="snapchat icon"></i>
+        <div class="content">
+          <div class="header"><%= @user.username %></div>
+          <div class="description">
+            <p>Posted <%= pluralize(@user_articles.count, "article") %></p>
+          </div>
+        </div>
+      </div>
+      <div class="ui relaxed divided list">
+        <%= render 'articles/article', obj: @user_articles %>
+      </div>
+    </div>
+    <%= will_paginate @user_articles, renderer: WillPaginateSemanticUi::ActionView::Renderer %>
+  </div>
+  <div class="two wide column">
+    <%= render 'shared/categories' %>
+  </div>
+</div>

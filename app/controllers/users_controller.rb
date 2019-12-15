@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show]
+
   def new
     @user = User.new
   end
@@ -15,7 +17,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    
+    @user_articles = @user.articles.paginate(page: params[:page], per_page: 15).order('created_at DESC')
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 
   private

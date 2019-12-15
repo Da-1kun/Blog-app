@@ -6,9 +6,9 @@
     </div>
   </div>
   <% Category.all.each do |category| %>
-  <a class="item">
-    <%= category.name %>
-    <div class="ui teal left pointing label"><%= category.articles.count %></div>
-  </a>
+    <%= link_to category_path(category), class: "item" do %>
+      <%= category.name %>
+      <div class="ui teal left pointing label"><%= category.articles.count %></div>
+    <% end %>
   <% end %>
 </div>
