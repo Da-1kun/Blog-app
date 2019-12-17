@@ -10,6 +10,9 @@
       <%= link_to new_article_path, class: 'item' do %>
         <i class="edit icon"></i>Write Article
       <% end %>
+      <%= link_to edit_user_path(current_user), class: 'item' do %>
+        <i class="address card outline icon"></i>Edit Your Profile
+      <% end %>
     <% end %>
     <div class="right item">
       <% if logged_in? %>

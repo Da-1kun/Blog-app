@@ -132,12 +132,12 @@ pre {
   float: right;
 }
 
-#post_btn {
-  margin-top: 1rem;
-}
-
 .sub.header {
   color: rgba(0,0,0,.4) !important;
+}
+
+.under-line {
+  color: black !important;
 }
 
 a:hover.under-line {
@@ -160,4 +160,16 @@ a:hover.under-line {
 
 .ui.error.message {
   display: block !important;
+}
+
+.ui.grid.mt-12 {
+  margin-top: 12rem;
+}
+
+.ui.message.center {
+  text-align: center;
+}
+
+.ui.button.mt-1 {
+  margin-top: 1rem;
 }

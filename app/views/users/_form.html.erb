@@ -1,0 +1,30 @@
+<%= form_for @user, html: {class: "ui large form"} do |f| %>
+  <div class="ui stacked segment">
+    <div class="field">
+      <%= render 'shared/errors', obj: @user %>
+      <div class="ui left icon input">
+        <i class="user icon"></i>
+        <%= f.text_field :username, placeholder: "Username" %>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui left icon input">
+        <i class="envelope icon"></i>
+        <%= f.email_field :email, placeholder: "E-mail address" %>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui left icon input">
+        <i class="lock icon"></i>
+        <%= f.password_field :password, placeholder: "Password" %>
+      </div>
+    </div>
+    <%= f.submit(@user.new_record? ? "Sign up" : "Update account", class: "ui fluid large teal submit button")%>
+    <% if controller.action_name == "edit" %>
+      <div class="ui red labeled icon button mt-1" id="user_article_btn">
+        <i class="trash alternate icon"></i>
+        Delete
+      </div>
+    <% end %>
+  </div>
+<% end %>

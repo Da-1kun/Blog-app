@@ -3,7 +3,7 @@
   <div class="ui large header">
     <i class="large github middle aligned icon"></i>
     <div class="content">
-      <%= link_to article.title, article_path(article), class: 'under-line', style: 'color:black;' %>
+      <%= link_to article.title, article_path(article), class: 'under-line' %>
       <div class="sub header wide">
         By <%= article.user.username %>&nbsp;&nbsp;
         <i class="clock icon"></i><%= time_ago_in_words(article.updated_at) %> ago&nbsp;&nbsp;

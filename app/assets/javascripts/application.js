@@ -47,6 +47,9 @@ $(document).on('turbolinks:load', () => {
 
   // display Modal
   $('#delete_article_btn').on('click', () => {
-    $('.ui.basic.modal').modal('show');
+    $('#articleModal').modal('show');
+  })
+  $('#user_article_btn').on('click', () => {
+    $('#userModal').modal('show');
   })
 }) 
