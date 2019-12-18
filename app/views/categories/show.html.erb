@@ -4,7 +4,11 @@
       <div class="ui huge center aligned header">
         <div class="content">
           <i class="teal tag icon"></i>
-          <%= @category.name%>
+          <% if logged_in? and current_user.admin? %>
+            <%= link_to @category.name, edit_category_path(@category), class: "under-line" %>
+          <% else %>
+            <%= @category.name%>
+          <% end %>
         </div>
       </div>
       <div class="ui relaxed divided list">

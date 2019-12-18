@@ -132,7 +132,8 @@ pre {
   float: right;
 }
 
-.sub.header {
+.sub.header,
+.sub-color {
   color: rgba(0,0,0,.4) !important;
 }
 
@@ -140,7 +141,8 @@ pre {
   color: black !important;
 }
 
-a:hover.under-line {
+a:hover.under-line,
+a:hover.sub-color {
   text-decoration: underline !important;
 }
 

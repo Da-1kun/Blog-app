@@ -6,12 +6,20 @@
     <%= link_to articles_path, class: 'item' do %>
       <i class="list alternate outline icon"></i>Article List
     <% end %>
+    <%= link_to users_path, class: 'item' do %>
+      <i class="circular users icon"></i>Users
+    <% end %>
     <% if logged_in? %>
       <%= link_to new_article_path, class: 'item' do %>
         <i class="edit icon"></i>Write Article
       <% end %>
       <%= link_to edit_user_path(current_user), class: 'item' do %>
         <i class="address card outline icon"></i>Edit Your Profile
+      <% end %>
+    <% end %>
+    <% if logged_in? and current_user.admin? %>
+      <%= link_to new_category_path, class: 'item' do %>
+        <i class="tag icon"></i>Add Category
       <% end %>
     <% end %>
     <div class="right item">
