@@ -1,4 +1,7 @@
-<div class="borderless fixed fluid inverted large menu ui">
+<div class="ui borderless fixed fluid inverted large menu">
+  <div class="item">
+    <%= link_to "NOTE BLOG", logged_in? ? articles_path : root_path, class: "ui large logo header" %>
+  </div>
   <div class="ui container">
     <a class="toc item">
       <i class="sidebar icon"></i>
@@ -7,7 +10,7 @@
       <i class="list alternate outline icon"></i>Article List
     <% end %>
     <%= link_to users_path, class: 'item' do %>
-      <i class="circular users icon"></i>Users
+      <i class="users icon"></i>Users
     <% end %>
     <% if logged_in? %>
       <%= link_to new_article_path, class: 'item' do %>
@@ -36,5 +39,10 @@
         <% end %>
       <% end %>
     </div>
+    <% if logged_in? %>
+      <%= link_to user_path(current_user), class: 'item' do %>
+        <i class="user outline icon"></i><%= current_user.username %>
+      <% end %>
+    <% end %>
   </div>
 </div>
