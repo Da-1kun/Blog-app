@@ -21,6 +21,9 @@
     </div>
     <%= f.submit(@user.new_record? ? "Sign up" : "Update account", class: "ui fluid large teal submit button")%>
     <% if controller.action_name == "edit" %>
+      <%= link_to "https://en.gravatar.com", target: :_blank, class: "ui basic teal button" do %>
+        <i class="image icon"></i>Setting Profile photo from Gravatar
+      <% end %>
       <div class="ui red labeled icon button mt-1" id="user_article_btn">
         <i class="trash alternate icon"></i>
         Delete

@@ -10,11 +10,11 @@
   </head>
 
   <body>
-    <%= render 'layouts/navigation' %>
+    <%= render 'layouts/sidebar' %>
     <!-- Page Contents -->
     <div class="pusher">
       <% if controller.action_name != "top" %>
-        <%= render 'layouts/staticNavigation' %>
+        <%= render 'layouts/menu' %>
       <% end %>
       <%= render 'layouts/messages' %>
       <%= yield %>

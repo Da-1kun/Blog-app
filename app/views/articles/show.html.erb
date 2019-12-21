@@ -2,7 +2,7 @@
   <div class="ten wide left aligned column">
     <div class="ui very padded segment">
       <h4 class="ui header">
-        <i class="user circle icon"></i>
+        <%= gravatar_for @article.user %>
         <div class="content">
           <%= link_to @article.user.username, user_path(@article.user), class: 'under-line' %>
           <div class="sub header">

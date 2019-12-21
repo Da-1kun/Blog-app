@@ -41,4 +41,11 @@ module ApplicationHelper
       markdown = Redcarpet::Markdown.new(html_render, options)
       markdown.render(text)
   end
+
+  def gravatar_for(user, options = { size: 80 })
+      gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
+      size = options[:size]
+      gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
+      image_tag(gravatar_url, alt: user.username, class: "ui medium circular image")
+  end
 end

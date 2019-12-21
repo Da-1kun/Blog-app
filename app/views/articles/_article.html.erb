@@ -1,7 +1,7 @@
 <% obj.each do |article| %>
 <div class="item">
   <div class="ui large header">
-    <i class="large github middle aligned icon"></i>
+    <%= gravatar_for article.user %>
     <div class="content">
       <%= link_to article.title, article_path(article), class: "under-line" %>
       <div class="sub header wide">
