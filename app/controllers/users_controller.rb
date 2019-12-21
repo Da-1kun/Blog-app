@@ -39,6 +39,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
+    session[:user_id] = nil
     flash[:success] = "User and all articles created by user have been deleted"
     redirect_to root_path
   end

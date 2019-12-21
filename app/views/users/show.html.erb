@@ -3,7 +3,7 @@
     <div class="ui very padded segment">
       <div class="ui center aligned icon large header">
         <div class="ui header">Welcome to <%= @user.username %>'s Page!</div>
-        <i class="snapchat icon"></i>
+        <%= gravatar_for @user, size: "big" %>
         <div class="content">
           <div class="header"><%= @user.username %></div>
           <div class="description">
