@@ -12,12 +12,31 @@
   </div>
 
   <div class="ui text container">
-  <h1 class="ui inverted header">
-    NOTE BLOG
-  </h1>
-  <h2>Do whatever you want when you want to.</h2>
-  <%= link_to login_path, class: 'ui huge primary button' do %>
-    Get Started<i class="right arrow icon"></i>
-  <% end %>
+    <h1 class="ui inverted header">
+      NOTE BLOG
+    </h1>
+    <h2>Do whatever you want when you want to.</h2>
+    <%= link_to login_path, class: 'ui huge primary button' do %>
+      Get Started<i class="right arrow icon"></i>
+    <% end %>
+  </div>
 </div>
+<div class="ui stackable centered grid">
+  <div class="ten wide left aligned column">
+    <div class="ui very padded segment">
+      <div class="ui huge center aligned header">
+        <div class="content">
+          <i class="list alternate outline icon"></i>
+          Article List
+        </div>
+      </div>
+      <div class="ui relaxed divided list">
+        <%= render 'articles/article', obj: @articles %>
+      </div>
+    </div>
+    <%= will_paginate @articles, renderer: WillPaginateSemanticUi::ActionView::Renderer %>
+  </div>
+  <div class="two wide column">
+    <%= render 'shared/categories' %>
+  </div>
 </div>
