@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @category_articles = @category.articles.paginate(page: params[:page], per_page: 15).order('created_at DESC')
+    @category_articles = @category.articles.paginate(page: params[:page], per_page: 10).order('created_at DESC')
   end
 
   def new

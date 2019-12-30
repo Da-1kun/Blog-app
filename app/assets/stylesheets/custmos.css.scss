@@ -114,7 +114,7 @@ a:hover {
 }
 
 .ui.message.transition {
-  position: absolute;
+  position: fixed;
   bottom: 2%;
   left: 1%;
   z-index: 1;
@@ -151,4 +151,8 @@ a:hover {
 
 .ui.big.image {
   width: 100px !important;
+}
+
+.ten.wide.column textarea {
+  resize: none;
 }
