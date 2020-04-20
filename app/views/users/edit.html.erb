@@ -1,32 +1,12 @@
-<div class="ui stackable centered grid mt-12">
-  <div class="four wide column">
-    <div class="ui huge teal center aligned header">
-      <%= gravatar_for @user %>
-      <div class="content">
-        Edit Your Profile
-      </div>
-    </div>
-    <%= render 'form' %>
-  </div>
-</div>
-
-<!-- delete confirm Modal-->
-<div class="ui basic modal" id="userModal">
-  <div class="ui icon header">
-    <i class="trash alternate icon"></i>
-    Delete User
-  </div>
+<section class="sec contact">
   <div class="content">
-    <p>Are you sure you want to delete this user and articles created by this user?</p>
-  </div>
-  <div class="actions">
-    <div class="ui red basic cancel inverted button">
-      <i class="remove icon"></i>
-      No
+    <div class="mxw800p">
+      <h3>Edit Profile</h3>
     </div>
-    <%= link_to user_path(@user), method: :delete, class: "ui green ok inverted button" do %>
-      <i class="checkmark icon"></i>
-      Yes
-    <% end %>
+    <%= render 'users/form' %>
+    <p class="form-comment">
+      <%= link_to 'Change your profile photo?',
+       'https://en.gravatar.com/', :target=>["_blank"] %>
+    </p>
   </div>
-</div>
+</section>

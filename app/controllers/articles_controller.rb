@@ -6,6 +6,10 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.paginate(page: params[:page], per_page: 10).order('created_at DESC')
+    @categories = Category.all
+  end
+
+  def search
   end
 
   def new

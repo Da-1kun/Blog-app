@@ -1,27 +1,23 @@
-<div class="ui stackable centered grid">
-  <div class="ten wide left aligned column">
-    <div class="ui very padded segment">
-      <h1 class="ui center aligned icon header">
-        <i class="circular users icon"></i>
-        Users
-      </h1>
-      <div class="ui relaxed divided list">
-        <% @users.each do |user| %>
-          <div class="item">
-            <div class="ui large header">
-              <%= gravatar_for user %>
-              <div class="content">
-                <%= link_to user.username, user_path(user), class: "under-line" %>
-                <div class="sub header">Posted <%= pluralize(user.articles.count, "article") %></div>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
+<section class="sec" id="users">
+  <div class="content">
+    <div class="mxw800p">
+      <h3>Our Users</h3>
     </div>
-    <%= will_paginate @users, renderer: WillPaginateSemanticUi::ActionView::Renderer %>
+    <div class="services">
+      <% @users.each do |user| %>
+        <div class="box">
+          <div class="iconBx">
+            <%= gravatar_for user %>
+          </div>
+          <div class="content">
+            <h2><%= link_to user.username, user_path(user) %></h2>
+            <p>
+              Posted <%= pluralize(user.articles.count, "article") %>
+            </p>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <div class="two wide column">
-    <%= render 'shared/categories' %>
-  </div>
-</div>
+</section>
+

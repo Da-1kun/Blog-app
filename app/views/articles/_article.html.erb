@@ -1,17 +1,23 @@
 <% obj.each do |article| %>
-<div class="item">
-  <div class="ui large header">
-    <%= gravatar_for article.user %>
-    <div class="content">
-      <%= link_to article.title, article_path(article), class: "under-line" %>
-      <div class="sub header wide">
-        By <%= link_to article.user.username, user_path(article.user), class: "sub-color" %>&nbsp;&nbsp;
-        <i class="clock icon"></i><%= time_ago_in_words(article.updated_at) %> ago&nbsp;&nbsp;
-        <% if article.categories.any? %>
-          <%= render article.categories %>
-        <% end %>
+  <div class="article">
+   <div class="article-start">
+      <div class="author-image">
+        <%= gravatar_for article.user %>
       </div>
     </div>
+    <div class="article-body">
+      <%= link_to article.title, article_path(article), class: "article-title" %>
+      <div class="article-meta">
+        <span>by<%= link_to article.user.username, user_path(article.user),
+         class: "author-name" %></span>
+        <span><%= time_ago_in_words(article.updated_at)%> ago</span>
+        <% if article.categories.any? %>
+          <div class="article-tag-list">
+            <i class="tag icon"></i>
+            <%= render article.categories %>
+          </div>
+        <% end %>
+      </div>
+    </div>  
   </div>
-</div>
 <% end %>

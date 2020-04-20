@@ -1,42 +1,56 @@
-<div class="ui inverted vertical masthead center aligned segment">
-  <div class="ui container">
-    <div class="ui large secondary inverted pointing menu">
-      <a class="toc item">
-        <i class="sidebar icon"></i>
-      </a>
-      <div class="right item">
-        <%= link_to 'Log in', login_path, class: 'ui inverted button' %>
-        <%= link_to 'Sign Up', signup_path, class: 'ui inverted button' %>
-      </div>
-    </div>
-  </div>
+<script>
+  window.addEventListener('scroll', () => {
+  if($('#home').length) {
+    const header = document.querySelector('header');
+    header.classList.toggle('sticky', window.scrollY > 0);
+  }
+});
+</script>
 
-  <div class="ui text container">
-    <h1 class="ui inverted header">
-      NOTE BLOG
-    </h1>
-    <h2>Do whatever you want when you want to.</h2>
-    <%= link_to login_path, class: 'ui huge primary button' do %>
-      Get Started<i class="right arrow icon"></i>
-    <% end %>
-  </div>
-</div>
-<div class="ui stackable centered grid">
-  <div class="ten wide left aligned column">
-    <div class="ui very padded segment">
-      <div class="ui huge center aligned header">
-        <div class="content">
-          <i class="list alternate outline icon"></i>
-          Article List
-        </div>
-      </div>
-      <div class="ui relaxed divided list">
-        <%= render 'articles/article', obj: @articles %>
+<!-- Header -->
+<header id="header">
+  <%= link_to "MY NOTE", logged_in? ? articles_path : root_path, class: "logo" %>
+  <ul>
+      <li><a href="#articles">Articles</a></li>
+      <li><%= link_to 'Log In', login_path %></li>
+      <li><a href="#signUp">Sign Up</a></li>
+  </ul>
+  <div class="toggle"></div>
+</header>
+
+<!-- Banner -->
+<section class="banner" id="home">
+  <h2><span>Share</span><br />What You <span>Learned</span></h2>
+</section>
+
+<!-- Recent Articles -->
+<section class="sec" id="articles">
+  <div class="article-list">
+    <div class="list-header">
+      <i class="clock outline icon"></i>
+      <div class="header-title">
+        Recent Articles
       </div>
     </div>
-    <%= will_paginate @articles, renderer: WillPaginateSemanticUi::ActionView::Renderer %>
+    <div class="article-list-view">
+      <%= render 'articles/article', obj: @articles %>
+    </div>
   </div>
-  <div class="two wide column">
-    <%= render 'shared/categories' %>
+  <%= render 'shared/categories', obj: @categories %>
+</section>
+
+<!-- Sign Up -->
+<section class="sec contact" id="signUp">
+  <div class="content">
+    <div class="mxw800p">
+      <h3>Sign Up</h3>
+      <p>
+        Let's start to use our services!
+      </p>
+    </div>
+    <%= render 'users/form' %>
+    <p class="form-comment">
+      Already have an account? <%= link_to 'Log in', login_path %>
+    </p>
   </div>
-</div>
+</section>

@@ -1,114 +1,68 @@
-<div class="ui stackable centered grid">
-  <div class="fourteen wide column">
-    <div class="ui attached message">
-    <div class="ui large header">
-      <i class="pencil alternate icon"></i>
-      <div class="content">Let's write an Article!</div>
-    </div>
-    </div>
-    <%= form_for @article, html: {class: "ui big form attached fluid segment"} do |f| %>
-      <%= render 'shared/errors', obj: @article %>
-      <div class="field">
-        <%= f.text_field :title, placeholder: "TITLE" %>
-      </div>
-      <div class="field">
-        <%= f.collection_select(:category_ids, Category.all, :id, :name, {prompt: "Select Category"}, {multiple: true,
+<!-- UI Kit -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.5/css/uikit.min.css"
+/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.5/js/uikit.min.js"></script>
+
+<!-- Codemirror and marked dependencies -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/codemirror.css"
+/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/codemirror.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/mode/markdown/markdown.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/addon/mode/overlay.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/mode/xml/xml.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/mode/gfm/gfm.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.js"></script>
+
+<!-- HTML editor CSS and JavaScript -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.5/css/components/htmleditor.css"
+/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.5/js/components/htmleditor.js"></script>
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/solarized-dark.min.css"
+/>
+
+<section class="sec" id="post">
+  <div class="post-editor">
+    <%= form_for @article, html: {class: "editor-form"} do |f| %>
+      <div class="editor-content">
+        <div class="editor-title">
+          <%= f.text_field :title, placeholder: "TITLE" %>
+        </div>
+        <div class="editor-tag">
+          <%= f.collection_select(:category_ids, Category.all, :id, :name, {prompt: "Select Category"}, {multiple: true,
           class: "ui fluid dropdown"}) %>
-      </div>
-      <div class="ui grid">
-        <div class="ten wide column">
-          <div class="field">
-            <%= f.text_area(:description, rows: "23", placeholder: "BODY") %>
-          </div>
         </div>
-        <div class="six wide column">
-          <div class="ui segment">
-            <h3 class="ui header">Markdown Syntax</h3>
-            <div class="ui two cards">
-              <div class="card">
-                <div class="content">
-                  <div class="header">Headings</div>
-                  <div class="description">
-                    # &nbsp;Heading level 1<br>
-                    ## &nbsp;Heading level 2<br>
-                    ### &nbsp;Heading level 3<br>
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="content">
-                  <div class="header">Unordered Lists</div>
-                  <div class="description">
-                    - First item<br>
-                    - Second item<br>
-                    　- Indented item<br>
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="content">
-                  <div class="header">Checkbox</div>
-                  <div class="description">
-                    - [ ] checkbox 1<br>
-                    - [ ] checkbox 2<br>
-                    - [x] checkbox 3<br>
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="content">
-                  <div class="header">Ordered Lists</div>
-                  <div class="description">
-                    1. First item<br>
-                    2. Second item<br>
-                    　1. Indented item<br>
-                    　2. Indented item<br>
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="content">
-                  <div class="header">Emphasis</div>
-                  <div class="description">
-                    &#8727;&#8727;Bold text&#8727;&#8727;
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="content">
-                  <div class="header">Links</div>
-                  <div class="description">
-                    [Link] (https://...)
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="content">
-                  <div class="header">Code</div>
-                  <div class="description">
-                    ```ruby<br>
-                    code<br>
-                    ```
-                  </div>
-                </div>
-              </div>
-              <div class="blue card">
-                <div class="content">
-                  <div class="header"><i class="blue question circle outline icon"></i>More Tips</div>
-                  <div class="description">
-                    <%= link_to 'Markdown Guide', 'https://www.markdownguide.org/basic-syntax/', target: :_blank %>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="editor-body">
+          <textarea name="article[description]" data-uk-htmleditor="{markdown:true}"><%= @article.description if @article.description %></textarea>
         </div>
       </div>
-      <%= button_tag type: "submit", class: "ui teal submit labeled icon button mt-1" do %>
-        <i class="upload icon"></i> Post
-      <% end %>
+      <%= render 'shared/errors', obj: @article %>
+      <div class="editor-footer">
+        <%= button_tag @article.new_record? ? 'Post' : 'Update' %>
+      </div>
     <% end %>
   </div>
-</div>
- 
-  
+</section>
+
+<script>
+$(function () {
+  marked.setOptions({
+    langPrefix: '',
+    highlight: function (code, lang) {
+      return hljs.highlightAuto(code, [lang]).value
+    }
+  });
+  $('#markdown_editor_textarea').keyup(function () {
+    var html = marked($(this).val());
+    $('#markdown_preview').html(html);
+  });
+});
+</script>

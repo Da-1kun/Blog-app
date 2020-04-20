@@ -18,38 +18,65 @@
 //= require_tree .
 
 $(document).on('turbolinks:load', () => {
-  // fix menu when passed
-  $('.masthead')
-  .visibility({
-    once: false,
-    onBottomPassed: function() {
-      $('.fixed.menu').transition('fade in');
-    },
-    onBottomPassedReverse: function() {
-      $('.fixed.menu').transition('fade out');
-    }
+  /**
+   * Header Action
+   */
+  $('#header li, #header .toggle').on('click', () => {
+    const header = document.querySelector('header');
+    header.classList.toggle('active');
   });
 
-  // create sidebar and attach to menu open
-  $('.ui.sidebar')
-    .sidebar('attach events', '.toc.item');
+  /**
+   * Article Form Setting
+   */
+  if ($('#post').length) {
+    const height = $('.editor-body').height() - 70;
+    $('.CodeMirror.cm-s-default.CodeMirror-wrap').height(height);
+    $('.uk-htmleditor-preview').height(height);
+  }
 
-  // flash message close action
+  /**
+   * Message Settings
+   */
   $('.message .close').on('click', e => {
-    $(e.target).closest('.message').transition('fade');
+    $(e.target)
+      .closest('.message')
+      .transition('fade');
   });
 
   $('#infoMsg').fadeOut(7500);
 
+  /**
+   * Dropdown Settings
+   */
   $('#article_category_ids').dropdown({
     maxSelections: 3
   });
 
-  // display Modal
+  $('.ui.dropdown').dropdown({ showOnFocus: false });
+
+  /**
+   * Modal Actions
+   */
   $('#delete_article_btn').on('click', () => {
     $('#articleModal').modal('show');
-  })
-  $('#user_article_btn').on('click', () => {
+  });
+  $('#delete_user').on('click', () => {
     $('#userModal').modal('show');
-  })
-}) 
+  });
+
+  /**
+   * Search action
+   */
+  $('#article_search').on('keydown', e => {
+    e.target.value = e.target.value.trimStart();
+    if (e.key == 'Enter' && e.target.value == '') {
+      return false;
+    }
+    if (e.keyCode == 13 && e.target.value !== '') {
+      $('#search').click();
+      e.target.value = '';
+      $('#article_search').trigger(e);
+    }
+  });
+});

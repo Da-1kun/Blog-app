@@ -1,30 +1,27 @@
-<div class="ui stackable centered grid mt-12">
-  <div class="four wide column">
-    <div class="ui huge teal center aligned header">
-      <div class="content">
-        <i class="home icon"></i>
-        Log in to your account
-      </div>
-    </div>
-    <%= form_for :session, url: login_path, html: {class: "ui large form"} do |f| %>
-      <div class="ui stacked segment">
-        <div class="field">
-          <div class="ui left icon input">
-            <i class="envelope icon"></i>
+<!-- Log In -->
+<section class="sec contact" id="signUp">
+  <div class="content">
+    <div class="contactForm">
+      <%= form_for :session, url: login_path do |f| %>
+        <div class="row100">
+          <div class="inputBx100">
             <%= f.email_field :email, placeholder: "E-mail address" %>
           </div>
         </div>
-        <div class="field">
-          <div class="ui left icon input">
-            <i class="lock icon"></i>
+        <div class="row100">
+          <div class="inputBx100">
             <%= f.password_field :password, placeholder: "Password" %>
           </div>
         </div>
-        <%= f.submit "Log in", class: "ui fluid large teal submit button" %>
-      </div>
-    <% end %>
-    <div class="ui message center">
-      New to us? <%= link_to 'Sign up', signup_path %>
+        <div class="row100">
+          <div class="inputBx100">
+            <%= f.submit "Log in"%>
+          </div>
+        </div>
+      <% end %>
     </div>
+    <p class="form-comment">
+      New to us? <%= link_to 'Sign up', signup_path %>
+    </p>
   </div>
-</div>
+</section>

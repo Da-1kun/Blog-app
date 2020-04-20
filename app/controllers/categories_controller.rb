@@ -4,6 +4,7 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @category_articles = @category.articles.paginate(page: params[:page], per_page: 10).order('created_at DESC')
+    @categories = Category.all
   end
 
   def new

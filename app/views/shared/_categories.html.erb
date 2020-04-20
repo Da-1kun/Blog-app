@@ -1,14 +1,26 @@
-<div class="ui vertical menu">
-  <div class="item">
-    <div class="ui header">
-      <i class="teal tags icon"></i>
-      <div class="content">Category</div>
+<div class="categories">
+  <div class="ctg-header">
+    <i class="tags icon"></i>
+    <div class="ctg-title">
+      Categories
     </div>
   </div>
-  <% Category.all.each do |category| %>
-    <%= link_to category_path(category), class: "item" do %>
-      <%= category.name %>
-      <div class="ui teal left pointing label"><%= category.articles.count %></div>
-    <% end %>
+  <div class="category-list-view">
+  <% obj.each do |category| %>
+    <div class="ctg-content"> 
+      <%= link_to category_path(category), class: "ctg-tag" do %>
+        <div class="ctg-start">
+          <%= category.name %>
+        </div>
+        <div class="ctg-post">
+          <% if @path.is('users#show') %>
+            <%= category.ctg_count %>
+          <% else %>
+            <%= category.articles.count %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   <% end %>
+  </div>
 </div>

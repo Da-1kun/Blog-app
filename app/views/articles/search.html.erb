@@ -1,19 +1,18 @@
 <section class="sec" id="articles">
   <div class="article-list">
     <div class="list-header">
-      <i class="list icon"></i>
+      <i class="search icon"></i>
       <div class="header-title">
-        Articles
+        Search Result
       </div>
     </div>
     <div class="article-list-view">
-      <%= render 'articles/article', obj: @articles %>
+      <%= render 'articles/article', obj: @search_articles %>
       <div class="pagination">
-        <%= will_paginate @articles,
+        <%= will_paginate @search_articles,
           renderer: WillPaginateSemanticUi::ActionView::Renderer,
           inner_window: 1, outer_window: 0 %>
       </div>
     </div>
   </div>
-  <%= render 'shared/categories', obj: @categories %>
 </section>

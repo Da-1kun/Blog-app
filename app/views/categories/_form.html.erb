@@ -1,12 +1,15 @@
-<%= form_for @category, html: {class: "ui large form"} do |f| %>
-  <div class="ui stacked segment">
-    <div class="field">
-      <%= render 'shared/errors', obj: @category %>
-      <div class="ui left icon input">
-        <i class="tag icon"></i>
+<div class="contactForm">
+  <%= form_for @category do |f| %>
+    <%= render 'shared/errors', obj: @category %> 
+    <div class="row100">
+      <div class="inputBx100">
         <%= f.text_field :name, placeholder: "name" %>
       </div>
     </div>
-    <%= f.submit(@category.new_record? ? "Post" : "Update", class: "ui fluid large teal submit button")%>
-  </div>
-<% end %>
+    <div class="row100">
+      <div class="inputBx100">
+        <%= f.submit(@category.new_record? ? "Add" : "Update") %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,33 +1,25 @@
-<%= form_for @user, html: {class: "ui large form"} do |f| %>
-  <div class="ui stacked segment">
-    <div class="field">
-      <%= render 'shared/errors', obj: @user %>
-      <div class="ui left icon input">
-        <i class="user icon"></i>
+<div class="contactForm">
+  <%= form_for @user do |f| %>
+    <%= render 'shared/errors', obj: @user %> 
+    <div class="row100">
+      <div class="inputBx100">
         <%= f.text_field :username, placeholder: "Username" %>
       </div>
     </div>
-    <div class="field">
-      <div class="ui left icon input">
-        <i class="envelope icon"></i>
+    <div class="row100">
+      <div class="inputBx100">
         <%= f.email_field :email, placeholder: "E-mail address" %>
       </div>
     </div>
-    <div class="field">
-      <div class="ui left icon input">
-        <i class="lock icon"></i>
+    <div class="row100">
+      <div class="inputBx100">
         <%= f.password_field :password, placeholder: "Password" %>
       </div>
     </div>
-    <%= f.submit(@user.new_record? ? "Sign up" : "Update account", class: "ui fluid large teal submit button")%>
-    <% if controller.action_name == "edit" %>
-      <%= link_to "https://en.gravatar.com", target: :_blank, class: "ui basic teal button" do %>
-        <i class="image icon"></i>Setting Profile photo from Gravatar
-      <% end %>
-      <div class="ui red labeled icon button mt-1" id="user_article_btn">
-        <i class="trash alternate icon"></i>
-        Delete
+    <div class="row100">
+      <div class="inputBx100">
+        <%= f.submit(@user.new_record? ? "create account" : "Update account") %>
       </div>
-    <% end %>
-  </div>
-<% end %>
+    </div>
+  <% end %>
+</div>

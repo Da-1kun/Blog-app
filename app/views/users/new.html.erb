@@ -1,11 +1,14 @@
-<div class="ui stackable centered grid mt-12">
-  <div class="four wide column">
-    <div class="ui huge teal center aligned header">
-      <div class="content">
-        <i class="large child icon"></i>
-        Sign up
-      </div>
+<section class="sec contact" id="signUp">
+  <div class="content">
+    <div class="mxw800p">
+      <h3>Sign Up</h3>
+      <p>
+        Let's start to use our services!
+      </p>
     </div>
-    <%= render 'form' %>
+    <%= render 'users/form' %>
+    <p class="form-comment">
+      Already have an account? <%= link_to 'Log in', root_path %>
+    </p>
   </div>
-</div>
+</section>

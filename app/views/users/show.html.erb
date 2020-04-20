@@ -1,23 +1,74 @@
-<div class="ui stackable centered grid">
-  <div class="ten wide left aligned column">
-    <div class="ui very padded segment">
-      <div class="ui center aligned icon large header">
-        <div class="ui header">Welcome to <%= @user.username %>'s Page!</div>
-        <%= gravatar_for @user, size: "big" %>
-        <div class="content">
-          <div class="header"><%= @user.username %></div>
-          <div class="description">
-            <p>Posted <%= pluralize(@user_articles.count, "article") %></p>
+<section class="sec" id="articles">
+  <div class="side-menu">
+    <div class="user-info">
+      <% if logged_in? && current_user == @user %>
+        <div class="user-action">
+          <div class="action-icon">
+            <div class="ui dropdown">
+              <i class="ellipsis horizontal icon"></i>
+              <div class="menu">
+                <div class="item" id="delete_user">Delete Account</div>
+              </div>
+            </div>
           </div>
         </div>
+      <% end %>
+      <div class="user-image">
+        <%= gravatar_for @user %>
       </div>
-      <div class="ui relaxed divided list">
-        <%= render 'articles/article', obj: @user_articles %>
+      <div class="user-name">
+        <p><%= @user.username %></p>
+      </div>
+      <div class="status">
+        <div class="status-item">
+          <p class="count"><%= @user_articles.count %></p>
+          <p class="label">Posted</p>
+        </div>
+      </div>
+      <% if logged_in? && current_user == @user %>
+        <div class="edit-button">
+          <%= button_to 'Edit your profile', edit_user_path(current_user),
+          method: :get, class: "p-edit-link" %>
+        </div>
+      <% end %>
+    </div>
+    <%= render 'shared/categories', obj: @user_categories %>
+  </div>
+  <div class="article-list">
+    <div class="list-header">
+      <i class="edit icon"></i>
+      <div class="header-title">
+        Posted Articles
       </div>
     </div>
-    <%= will_paginate @user_articles, renderer: WillPaginateSemanticUi::ActionView::Renderer %>
+    <div class="article-list-view">
+      <%= render 'articles/article', obj: @user_articles %>
+      <div class="pagination">
+        <%= will_paginate @user_articles,
+         renderer: WillPaginateSemanticUi::ActionView::Renderer,
+          inner_window: 1, outer_window: 0 %>
+      </div>
+    </div>
   </div>
-  <div class="two wide column">
-    <%= render 'shared/categories' %>
+</section>
+
+<!-- delete confirm Modal-->
+<div class="ui basic modal" id="userModal">
+  <div class="ui icon header">
+    <i class="trash alternate icon"></i>
+    Delete User
+  </div>
+  <div class="content">
+    <p>Are you sure you want to delete this user and articles created by this user?</p>
+  </div>
+  <div class="actions">
+    <div class="ui red basic cancel inverted button">
+      <i class="remove icon"></i>
+      No
+    </div>
+    <%= link_to user_path(@user), method: :delete, class: "ui green ok inverted button" do %>
+      <i class="checkmark icon"></i>
+      Yes
+    <% end %>
   </div>
 </div>
