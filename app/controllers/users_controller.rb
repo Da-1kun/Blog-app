@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user_articles = @user.articles.paginate(page: params[:page], per_page: 10).order('created_at DESC')
+    @user_articles = @user.articles.paginate(page: params[:page], per_page: 10).recent
     @user_categories = Category
                         .joins(:articles)
                         .where(articles: {user_id: @user.id}).group("categories.id")
