@@ -10,6 +10,15 @@
 <!-- Header -->
 <header id="header">
   <%= link_to "MY NOTE", logged_in? ? articles_path : root_path, class: "logo" %>
+  <div class="search-form">
+    <%= search_form_for @search, url: search_path do |f| %>
+      <div class="ui icon input">
+        <%= f.text_field :title_or_description_cont ,placeholder: "Search" %>
+        <i class="search icon"></i>
+        <%= f.submit id: "search", style: "display: none" %>
+      </div>
+    <% end %>
+  </div>
   <ul>
       <li><a href="#articles">Articles</a></li>
       <li><%= link_to 'Log In', login_path %></li>

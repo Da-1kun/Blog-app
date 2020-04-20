@@ -34,6 +34,9 @@ header {
     ul li a {
       color: #000;
     }
+    .search-form {
+      display: block;
+    }
   }
   .logo {
     position: relative;
@@ -790,6 +793,10 @@ p {
   display: none;
 }
 
+.search-form {
+  display: none;
+}
+
 @media (max-width: 1024px) {
   header {
     .logo {
@@ -905,5 +912,8 @@ p {
   .contactForm .row100 .inputBx100 {
     width: 100%;
     margin: 0;
+  }
+  .search-form {
+    display: block;
   }
 }
