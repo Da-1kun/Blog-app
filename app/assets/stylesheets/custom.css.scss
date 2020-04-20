@@ -10,7 +10,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  min-height: 1000px;
+  min-height: 100vh;
   line-height: normal;
 }
 header {
@@ -509,7 +509,11 @@ header {
         padding-right: 0;
         margin: 1.5em 0;
       }
+      .CodeRay {
+        margin-bottom: 20px;
+      }
       pre {
+        padding: 15px;
         overflow: auto;
         background-color: #f6f8fa;
       }
@@ -883,7 +887,12 @@ p {
     }
   }
   .sec {
-    padding: 100px 50px 50px 50px;
+    padding: 75px 10px;
+  }
+  #showArticle .sh-atc {
+    width: 90vw;
+    padding: 10px;
+    max-width: 90vw;
   }
   .services .box {
     width: 100%;
