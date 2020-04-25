@@ -505,11 +505,11 @@ header {
       }
       p {
         line-height: 1.9;
-        code {
-          background-color: #eee;
-          color: #d05;
-          padding: 1.6px 6.4px;
-        }
+      }
+      :not(pre) > code {
+        background-color: #eee;
+        color: #d05;
+        padding: 1.6px 6.4px;
       }
       blockquote {
         border-left: 5px solid #ddd;
