@@ -532,6 +532,11 @@ header {
       ol,
       ul {
         padding-left: 30px;
+        position: relative;
+        font-size: 18px;
+        font-weight: 300;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
       }
     }
     .sh-atc-footer {
