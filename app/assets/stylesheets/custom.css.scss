@@ -510,6 +510,7 @@ header {
         background-color: #eee;
         color: #d05;
         padding: 1.6px 6.4px;
+        font-size: 0.9em;
       }
       strong {
         font-weight: 700;
@@ -528,6 +529,7 @@ header {
         padding: 15px;
         overflow: auto;
         background-color: #f6f8fa;
+        word-wrap: none;
       }
       ol,
       ul {
@@ -681,7 +683,7 @@ h3 {
 
 p {
   position: relative;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
   margin-bottom: 20px;
   letter-spacing: 1px;
