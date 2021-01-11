@@ -34,7 +34,7 @@ gem 'bcrypt', '~> 3.1.7'
 # AddedGems
 gem 'semantic-ui-sass'
 gem 'jquery-rails'
-gem 'redcarpet', '~> 2.3.0'
+gem 'redcarpet', '~> 3.5.1'
 gem 'coderay'
 gem 'will_paginate','~> 3.0'
 gem 'will_paginate_semantic_ui'
